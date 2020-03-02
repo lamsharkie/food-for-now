@@ -37,3 +37,28 @@ As a user, I want to view this all in a clean and simple UI + UX so that it’s 
 -         Style results tiles
 -         Button animations
 -         Media queries
+
+
+Database Entity-Relationship-Diagram (SQL DBs only)
+Table 1 : Saved Recipes
+Columns :
+* food query - VARCHAR
+* label - VARCHAR
+* image - VARCHAR
+* yield - INT 
+* ingredients or ingredientslines - TEXT (depending on what method we use to update , TBD)
+
+POSSIBLE Table 2 (stretch goal) : Profiles
+Columns :
+* Profile - VARCHAR
+* Password - VARCHAR
+
+POSSIBLE Table 3 (depending on what method we use to update , TBD) : Ingredients
+Columns:
+* 1st ingredients - VARCHAR
+* 2nd ingredients - VARCHAR
+* 3rd ingredients - VARCHAR
+.
+.
+.
+* 10th ingredients - VARCHAR
