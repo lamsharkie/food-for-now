@@ -62,3 +62,6 @@ Columns:
 .
 .
 * 10th ingredients - VARCHAR
+
+https://trello.com/b/2ffsCKpH/food-for-now
+https://trello.com/c/NFryNApF/9-domain-modeling-diagram
