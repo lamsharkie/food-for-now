@@ -22,12 +22,13 @@ const PORT = process.env.PORT || 3001;
 
 // Routes
 app.get('/', renderHomePage);
+app.post('/search', handleSearch);
 app.get('/recipeResults', renderRecipes);
 app.get('/foodforlater', renderMyList);
 
 // Functions
 function renderHomePage(request, response){
-    response.render('./index.ejs');
+  response.render('./index.ejs');
 }
 
 function renderRecipes(request, response){
@@ -38,11 +39,26 @@ function renderMyList(request, response){
   response.render('./mylist.ejs');
 }
 
+function handleSearch(request, response) {
+  let searchTerm = request.body.search;
+  let url = `https://api.edamam.com/search?q=${searchTerm}&app_id=${process.env.EDAMAM_ID}&app_key=${process.env.EDAMAM_KEY}`;
+  superagent.get(url).then(results => {
+    console.log(results.body.hits[0].recipe);
+    const resultsArray = results.body.hits;
+    const finalArray = resultsArray.map(recipe => {
+      return new Recipe(recipe);
+    });
+    response.render('./results.ejs', {results: finalArray});
+  });
+}
+
 function Recipe(obj){
-  this.label = obj.label;
-  this.image_url = obj.hits.recipe.image;
-  this.dietLabels = obj.hits.recipe.dietLabels;
-  this.ingredientLines = obj.hits.recipe.ingredientLines;
+  this.label = obj.recipe.label;
+  this.image_url = obj.recipe.image;
+  this.ingredientLines = obj.recipe.ingredientLines;
+  this.recipe_url = obj.recipe.url;
+  this.dietLabels = obj.recipe.dietLabels;
+  this.healthLabels = obj.recipe.healthLabels;
 }
 
 // Turn on the DB and the Server
