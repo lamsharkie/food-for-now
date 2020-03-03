@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food For Later</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food For Later</title>
 </head>
+
 <body>
-<main>
+  <main>
     <!-- Top Nav -->
     <nav>
-        <ul>
-            <a href="/"><li>Food For Now</li></a>
-            <!-- Search will be hidden on the Home page: index.ejs -->
-            <a href="/" ><li>Search</li></a>
-            <a href="/foodforlater" ><li>My List</li></a>
-        </ul>
+      <ul>
+        <a href="/">
+          <li>Food For Now</li>
+        </a>
+        <!-- Search will be hidden on the Home page: index.ejs -->
+        <a href="/">
+          <li>Search</li>
+        </a>
+        <a href="/foodforlater">
+          <li>My List</li>
+        </a>
+      </ul>
     </nav>
-    
-    
-    
-    
-    
-    
-    
+    <section>
+      <% results.forEach(recipe => { %>
+        <article>
+          <img src="<%= recipe.image_url %>"/>
+          <h2><%= recipe.label %></h2>
+          <h4>Ingredients</h4>
+          <ul>
+            <% recipe.ingredientlines.forEach(ingredient => { %>
+              <li><%= ingredient %></li>
+            <% }); %>
+          </ul>
+        </article>
+      <% }); %>
+    </section>
     <!-- Footer -->
     <footer>
-    
-        <ul>
-            <li>Food For Now &copy; 2020</li>
-            <li>Built by: Cavendish Bananas</li>`
-        </ul>
-    
+      <ul>
+        <li>Food For Now &copy; 2020</li>
+        <li>Built by: Cavendish Bananas</li>`
+      </ul>
     </footer>
-</main>
-
-
-    
-    
+  </main>
 </body>
+
 </html>
