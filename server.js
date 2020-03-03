@@ -1,8 +1,7 @@
 'use strict';
 
+// Middleware and Dependencies
 require('dotenv').config();
-
-
 
 const express = require('express');
 const app = express();
@@ -22,11 +21,26 @@ client.on('error', err => console.error(err));
 const PORT = process.env.PORT || 3001;
 
 
-
+// Routes
 app.get('/', renderHomePage);
+app.get('/recipeResults', renderRecipes);
+app.get('/foodforlater', renderMyList);
 
+
+
+
+
+// Functions
 function renderHomePage(request, response){
-    response.send("hello")
+    response.render('./index.ejs');
+}
+
+function renderRecipes(request, response){
+  response.render('./results.ejs');
+}
+
+function renderMyList(request, response){
+  response.render('./mylist.ejs');
 }
 
 // function renderHomePage(request, response){
@@ -45,7 +59,7 @@ function renderHomePage(request, response){
 
 
 
-
+// Turn on the DB and the Server
 client.connect()
   .then(
     app.listen(PORT, () => console.log(`listening on ${PORT}`))
