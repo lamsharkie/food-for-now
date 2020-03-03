@@ -12,15 +12,15 @@
         <ul>
             <a href="/"><li>Food For Now</li></a>
             <!-- Search will be hidden on the Home page: index.ejs -->
-            <a href="/" ><li>Search</li> </a>
-            <a href="/foodforlater" ><li>My List</li>
+            <a href="/" ><li>Search</li></a>
+            <a href="/foodforlater" ><li>My List</li></a>
         </ul>
     </nav>
 
     <!-- Search Form -->
-    <form>
-        <input type="text" value="ingredients" placeholder="Type in some ingredients..." />
-        <button id="searchButton" type="submit">Find Recipies</button>
+    <form action="/search" method="POST">
+        <input type="text" name="search" placeholder="Type in some ingredients..." />
+        <button id="searchButton" type="submit">Find Recipes</button>
     </form>
 
     <!-- Register / Login -->
