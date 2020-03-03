@@ -24,7 +24,10 @@ const PORT = process.env.PORT || 3001;
 app.get('/', renderHomePage);
 app.post('/search', handleSearch);
 app.get('/recipeResults', renderRecipes);
+app.post('/save', saveRecipe);
 app.get('/foodforlater', renderMyList);
+
+let query;
 
 // Functions
 function renderHomePage(request, response){
@@ -36,19 +39,32 @@ function renderRecipes(request, response){
 }
 
 function renderMyList(request, response){
-  response.render('./mylist.ejs');
+  const sql = `SELECT * FROM recipes;`;
+  client.query(sql).then(results => {
+    let recipes = results.rows;
+    response.render('./mylist.ejs', {results: recipes});
+  });
 }
 
 function handleSearch(request, response) {
-  let searchTerm = request.body.search;
-  let url = `https://api.edamam.com/search?q=${searchTerm}&app_id=${process.env.EDAMAM_ID}&app_key=${process.env.EDAMAM_KEY}`;
+  query = request.body.search;
+  let url = `https://api.edamam.com/search?q=${query}&app_id=${process.env.EDAMAM_ID}&app_key=${process.env.EDAMAM_KEY}`;
   superagent.get(url).then(results => {
-    console.log(results.body.hits[0].recipe);
     const resultsArray = results.body.hits;
     const finalArray = resultsArray.map(recipe => {
       return new Recipe(recipe);
     });
     response.render('./results.ejs', {results: finalArray});
+  });
+}
+
+function saveRecipe(request, response) {
+  console.log(request.body);
+  let {label, image_url, ingredientLines, recipe_url, dietLabels, healthLabels} = request.body;
+  let sql = `INSERT INTO recipes (label, image_url, ingredientlines, recipe_url, dietLabels, healthLabels) VALUES ($1, $2, $3, $4, $5, $6);`;
+  let safeValues = [label, image_url, ingredientLines, recipe_url, dietLabels, healthLabels];
+  client.query(sql, safeValues).then( () => {
+    response.redirect(`/foodforlater`);
   });
 }
 
