@@ -1,8 +1,7 @@
 'use strict';
 
+// Middleware and Dependencies
 require('dotenv').config();
-
-
 
 const express = require('express');
 const app = express();
@@ -21,26 +20,23 @@ client.on('error', err => console.error(err));
 
 const PORT = process.env.PORT || 3001;
 
-
-
+// Routes
 app.get('/', renderHomePage);
+app.get('/recipeResults', renderRecipes);
+app.get('/foodforlater', renderMyList);
 
+// Functions
 function renderHomePage(request, response){
-  response.send('hello');
+    response.render('./index.ejs');
 }
 
-// function renderHomePage(request, response){
+function renderRecipes(request, response){
+  response.render('./results.ejs');
+}
 
-//     let query = request.body. // not sure what this will be until we have the server running;
-
-//     let url = `https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}`;
-
-//     superagent.get(url)
-//       .then(results => {
-
-//       }
-//       );
-//   }
+function renderMyList(request, response){
+  response.render('./mylist.ejs');
+}
 
 function Recipe(obj){
   this.label = obj.label;
@@ -49,8 +45,7 @@ function Recipe(obj){
   this.ingredientLines = obj.hits.recipe.ingredientLines;
 }
 
-
-
+// Turn on the DB and the Server
 client.connect()
   .then(
     app.listen(PORT, () => console.log(`listening on ${PORT}`))
