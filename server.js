@@ -9,9 +9,9 @@ require('ejs');
 const superagent = require('superagent');
 const methodOverride = require('method-override');
 
-app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true,}));
-// app.use(express.static('./public')); -----------no public folder yet
+app.use(express.static('./public'));
+app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 const pg = require('pg');
 
