@@ -12,7 +12,7 @@ const methodOverride = require('method-override');
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true,}));
-// app.use(express.static('./public')); -----------no public folder yet
+app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 const pg = require('pg');
 
@@ -21,12 +21,10 @@ client.on('error', err => console.error(err));
 
 const PORT = process.env.PORT || 3001;
 
-
-
 app.get('/', renderHomePage);
 
 function renderHomePage(request, response){
-    response.send("hello")
+  response.send('hello');
 }
 
 // function renderHomePage(request, response){
@@ -34,7 +32,7 @@ function renderHomePage(request, response){
 //     let query = request.body. // not sure what this will be until we have the server running;
 
 //     let url = `https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}`;
-  
+
 //     superagent.get(url)
 //       .then(results => {
 
@@ -44,9 +42,7 @@ function renderHomePage(request, response){
 
 
 
-
-
 client.connect()
   .then(
     app.listen(PORT, () => console.log(`listening on ${PORT}`))
-  )
+  );
