@@ -1,0 +1,35 @@
+{
+  "name": "food-for-now",
+  "version": "1.0.0",
+  "description": "Project 301 ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamsharkie/food-for-now.git"
+  },
+  "keywords": [
+    "301db58",
+    "Brandon",
+    "Teddy",
+    "Brody",
+    "Steven"
+  ],
+  "author": "Brandon, Teddy, Brody, Steven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lamsharkie/food-for-now/issues"
+  },
+  "homepage": "https://github.com/lamsharkie/food-for-now#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^7.18.2",
+    "superagent": "^5.2.2"
+  }
+}
