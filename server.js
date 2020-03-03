@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 3001;
 app.get('/', renderHomePage);
 
 function renderHomePage(request, response){
-    response.send("hello")
+  response.send('hello');
 }
 
 // function renderHomePage(request, response){
@@ -34,7 +34,7 @@ function renderHomePage(request, response){
 //     let query = request.body. // not sure what this will be until we have the server running;
 
 //     let url = `https://api.edamam.com/search?q=${query}&app_id=${API_ID}&app_key=${API_KEY}`;
-  
+
 //     superagent.get(url)
 //       .then(results => {
 
@@ -42,11 +42,16 @@ function renderHomePage(request, response){
 //       );
 //   }
 
-
+function Recipe(obj){
+  this.label = obj.label;
+  this.image_url = obj.hits.recipe.image;
+  this.dietLabels = obj.hits.recipe.dietLabels;
+  this.ingredientLines = obj.hits.recipe.ingredientLines;
+}
 
 
 
 client.connect()
   .then(
     app.listen(PORT, () => console.log(`listening on ${PORT}`))
-  )
+  );
