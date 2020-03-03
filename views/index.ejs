@@ -2,40 +2,41 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food For Later</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food For Later</title>
+    <link type="text/css" rel="stylesheet" href="/css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/css/layout.css" />
+    <link type="text/css" rel="stylesheet" href="/css/module.css" />
+    
 </head>
 
 <body>
   <main>
     <!-- Top Nav -->
-    <nav>
-      <ul>
-        <a href="/">
-          <li>Food For Now</li>
-        </a>
-        <!-- Search will be hidden on the Home page: index.ejs -->
-        <a href="/">
-          <li>Search</li>
-        </a>
-        <a href="/foodforlater">
-          <li>My List</li>
-        </a>
-      </ul>
+
+    <nav class="bar">
+        <div>Food For Now</div>
+        <ul id="recipe">
+            <!-- Search will be hidden on the Home page: index.ejs -->
+            <a href="/" ><li>Search</li></a>
+            <a href="/foodforlater" ><li>My List</li></a>
+        </ul>
     </nav>
 
     <!-- Search Form -->
-    <form action="/search" method="POST">
-      <input type="text" name="search" placeholder="Type in some ingredients..." />
-      <button id="searchButton" type="submit">Find Recipes</button>
-    </form>
-
-    <!-- Register / Login -->
-    <ul>
-      <li>Register</li>
-      <li>Log In</li>
-    </ul>
+    
+        <form id="searchForm" action="/search" method="POST">
+            <input type="text" name="search" placeholder="Type in some ingredients..." />
+            <button id="searchButton" type="submit">Find Recipes</button>
+            <!-- Register / Login -->
+            <ul>
+                <li>Register</li>
+                <li>Log In</li>
+            </ul>
+        </form>
 
     <!-- Footer -->
     <footer>
