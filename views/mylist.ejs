@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food For Later</title>
+    <link type="text/css" rel="stylesheet" href="/css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/css/layout.css" />
+    <link type="text/css" rel="stylesheet" href="/css/module.css" />
+
 </head>
+
 <body>
-<main>
+  <main>
     <!-- Top Nav -->
     <nav>
-        <ul>
-            <a href="/"><li>Food For Now</li></a>
-            <!-- Search will be hidden on the Home page: index.ejs -->
-            <a href="/" ><li>Search</li> </a>
-            <a href="/foodforlater" ><li>My List</li> 
-        </ul>
+      <ul>
+        <a href="/">
+          <li>Food For Now</li>
+        </a>
+        <!-- Search will be hidden on the Home page: index.ejs -->
+        <a href="/">
+          <li>Search</li>
+        </a>
+        <a href="/foodforlater">
+          <li>My List</li>
+        </a>
+      </ul>
     </nav>
-    
+    <section>
+      <% results.forEach(recipe => { %>
+        <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
+          <fieldset>
+            <img src="<%= recipe.image_url %>">
+            <br>
+            <h4>Ingredients</h4>
+            <label><%= recipe.label %></label>
+            <% recipe.ingredientlines.forEach(ingredient => { %>
+            <br>
+            <label><%= ingredient %></label>
+            <br>
+            <% }); %>
+          </fieldset>
+          <button type='submit'>Delete Recipes</button>
+        </form>
+      <% }); %>
+    </section>
     <!-- Footer -->
     <footer>
-    
-        <ul>
-            <li>Food For Now &copy; 2020</li>
-            <li>Built by: Cavendish Bananas</li>`
-        </ul>
-    
+      <ul>
+        <li>Food For Now &copy; 2020</li>
+        <li>Built by: Cavendish Bananas</li>
+      </ul>
     </footer>
-</main>
-
+  </main>
 </body>
+
 </html>

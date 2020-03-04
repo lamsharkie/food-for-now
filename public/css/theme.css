@@ -1,0 +1,47 @@
+
+/* CSS Variables */
+
+:root {
+    --primaryColor: #41FF1A;
+}
+
+/* ************************  */
+
+
+
+
+/*  Main Color Theme */
+
+/* Color Theme Swatches in Hex */
+.Food-For-Now-1-hex { color: #2B31FF; }
+.Food-For-Now-2-hex { color: #0CE8DE; }
+.Food-For-Now-3-hex { color: #41FF1A; } 
+.Food-For-Now-4-hex { color: #E8C70C; }
+.Food-For-Now-5-hex { color: #FF700D; }
+
+/* Color Theme Swatches in RGBA */
+.Food-For-Now-1-rgba { color: rgba(43, 49, 255, 1); }
+.Food-For-Now-2-rgba { color: rgba(12, 232, 222, 1); }
+.Food-For-Now-3-rgba { color: rgba(65, 255, 26, 1); }
+.Food-For-Now-4-rgba { color: rgba(232, 199, 12, 1); }
+.Food-For-Now-5-rgba { color: rgba(255, 112, 13, 1); }
+
+/*  **********************   */
+
+/* Green Scale - For varying green shades for different states */
+
+/* Color Theme Swatches in Hex */
+.ffn-green-scale-1-hex { color: #0DFF75; }
+.ffn-green-scale-2-hex { color: #0CE82C; }
+.ffn-green-scale-3-hex { color: #41FF1A; }
+.ffn-green-scale-4-hex { color: #7DE80C; }
+.ffn-green-scale-5-hex { color: #DEFF0D; }
+
+/* Color Theme Swatches in RGBA */
+.ffn-green-scale-1-rgba { color: rgba(13, 255, 117, 1); }
+.ffn-green-scale-2-rgba { color: rgba(12, 232, 44, 1); }
+.ffn-green-scale-3-rgba { color: rgba(65, 255, 26, 1); }
+.ffn-green-scale-4-rgba { color: rgba(125, 232, 12, 1); }
+.ffn-green-scale-5-rgba { color: rgba(222, 255, 13, 1); }
+
+/*  *********************   */
