@@ -36,22 +36,24 @@
       <% results.forEach(recipe => { %>
         <article>
           <img src="<%= recipe.image_url %>"/>
-          <h2><%= recipe.label %></h2>
-          <h4>Ingredients</h4>
-          <ul>
-            <% recipe.ingredientLines.forEach(ingredient => { %>
-            <li><%= ingredient %></li>
-            <% }); %>
-          </ul>
-          <form action="/save" method="POST">
-            <input type="hidden" name="image_url" value="<%= recipe.image_url %>">
-            <input type="hidden" name="label" value="<%= recipe.label %>">
-            <input type="hidden" name="ingredientLines" value="<%= JSON.stringify(recipe.ingredientLines) %>">
-            <input type="hidden" name="recipe_url" value="<%= recipe.recipe_url %>">
-            <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
-            <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
-            <button type="submit">Save</button>
-          </form>
+          <div>
+            <h2><%= recipe.label %></h2>
+            <h4>Ingredients</h4>
+            <ul>
+              <% recipe.ingredientLines.forEach(ingredient => { %>
+              <li><%= ingredient %></li>
+              <% }); %>
+            </ul>
+            <form action="/save" method="POST">
+              <input type="hidden" name="image_url" value="<%= recipe.image_url %>">
+              <input type="hidden" name="label" value="<%= recipe.label %>">
+              <input type="hidden" name="ingredientLines" value="<%= JSON.stringify(recipe.ingredientLines) %>">
+              <input type="hidden" name="recipe_url" value="<%= recipe.recipe_url %>">
+              <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
+              <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
+              <button type="submit">Save</button>
+            </form>
+          </div>
         </article>
       <% }); %>
     </section>

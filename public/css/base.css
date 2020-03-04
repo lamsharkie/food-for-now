@@ -82,6 +82,7 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 42px;
 }
 
 footer ul{
@@ -92,4 +93,61 @@ footer ul{
 
 footer ul li {
     align-self: center;
+}
+
+
+/* Recipes */
+
+/* card container */
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;    
+    width: 90%;
+    padding: 14px 0px;
+    background-color: rgb(230, 230, 230);
+}
+
+/* card */
+article {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 90%;
+    background-color: coral;
+    border: 1px solid black;
+    margin: 21px 0px;
+}
+
+article div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    width: 90%;
+
+}
+
+article h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    /* align-self: center; */
+}
+
+article div h4 {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+article > img, h2, h4, ul, button {
+    margin-bottom: 7px;
+}
+
+article div form {
+    display: flex;
+    width: 100%;
+}
+article div form button {
+    align-self: flex-end;
 }
