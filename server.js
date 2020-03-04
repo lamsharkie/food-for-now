@@ -105,10 +105,6 @@ function Recipe(obj){
   this.healthLabels = obj.recipe.healthLabels;
 }
 
-// $('showButton').click(function(){
-//   $(this).siblings('.updateForm').toggleClass('.hidden');
-// });
-
 // Turn on the DB and the Server
 client.connect()
   .then(

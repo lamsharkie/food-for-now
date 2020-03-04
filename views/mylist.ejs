@@ -33,24 +33,24 @@
     <section>
       <% results.forEach(recipe => { %>
         <article>
-            <img src="<%= recipe.image_url %>">
-            <br>
-            <h4>Ingredients</h4>
-            <label><%= recipe.label %></label>
-            <% recipe.ingredientlines.forEach(ingredient => { %>
-            <br>
-            <label><%= ingredient %></label>
-            <br>
-            <% }); %>
-            <div class='showButton'>Update</div>
+          <img src="<%= recipe.image_url %>">
+          <br>
+          <h4>Ingredients</h4>
+          <label><%= recipe.label %></label>
+          <% recipe.ingredientlines.forEach(ingredient => { %>
+          <br>
+          <label><%= ingredient %></label>
+          <br>
+          <% }); %>
+          <div class='showButton'>Update</div>
           <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
             <button type='submit'>Delete</button>
           </form>
-            <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm' method="post">
+          <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm hidden' method="post">
               <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
               <button type='submit'>Submit</button>
-        </form>
-      </article>
+          </form>
+        </article>
       <% }); %>
     </section>
     <!-- Footer -->
@@ -61,6 +61,11 @@
       </ul>
     </footer>
   </main>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>  
+  <script src='app.js'></script>
 </body>
 
 </html>
