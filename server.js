@@ -38,7 +38,7 @@ function deleteRecipe(request, response){
   let safeValues = [id];
   client.query(sql, safeValues)
     .then(() => {
-      response.redirect('/');
+      response.redirect('/foodforlater');
     });
 }
 ///////////////Teddy
