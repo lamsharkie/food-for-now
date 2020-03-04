@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <main>
+  <main id="foodForLaterMain">
     <!-- Top Nav -->
     <nav>
       <ul>
@@ -30,26 +30,29 @@
         </a>
       </ul>
     </nav>
-    <section>
+    <header>
+        <h1> My Recipes</h1>
+    </header>
+    <section id="foodForLaterSection">
       <% results.forEach(recipe => { %>
         <article>
           <img src="<%= recipe.image_url %>">
-          <br>
-          <h4>Ingredients</h4>
-          <label><%= recipe.label %></label>
-          <% recipe.ingredientlines.forEach(ingredient => { %>
-          <br>
-          <label><%= ingredient %></label>
-          <br>
-          <% }); %>
-          <div class='showButton'>Update</div>
-          <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
-            <button type='submit'>Delete</button>
-          </form>
-          <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm hidden' method="post">
-              <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
-              <button type='submit'>Submit</button>
-          </form>
+          <div>
+            <h2><%= recipe.label %></h2>
+            <h4>Ingredients</h4>
+            <label><%= recipe.label %></label>
+            <% recipe.ingredientlines.forEach(ingredient => { %>
+            <label><%= ingredient %></label>
+            <% }); %>
+            <div class='showButton'>Update</div>
+            <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
+              <button type='submit'>Delete</button>
+            </form>
+            <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm hidden' method="post">
+                <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
+                <button type='submit'>Submit</button>
+            </form>
+          </div>
         </article>
       <% }); %>
     </section>
