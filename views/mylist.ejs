@@ -40,10 +40,11 @@
           <div>
             <h2><%= recipe.label %></h2>
             <h4>Ingredients</h4>
-            <label><%= recipe.label %></label>
-            <% recipe.ingredientlines.forEach(ingredient => { %>
-            <label><%= ingredient %></label>
-            <% }); %>
+            <ul>
+              <% recipe.ingredientlines.forEach(ingredient => { %>
+              <li><%= ingredient %></li>
+              <% }); %>
+            </ul>
             <div class='showButton'>Update</div>
             <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
               <button type='submit'>Delete</button>
