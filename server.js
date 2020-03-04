@@ -26,6 +26,20 @@ app.post('/search', handleSearch);
 app.get('/recipeResults', renderRecipes);
 app.post('/save', saveRecipe);
 app.get('/foodforlater', renderMyList);
+app.put('/edit/:recipe_id', updateRecipe);
+
+
+function updateRecipe(request, response){
+  let id = request.params.recipe_id;
+  let parsedIngredients = JSON.stringify(request.body.ingredientlines.split(' | '));
+  console.log('hello');
+  let sql = `UPDATE recipes SET ingredientLines = $1 WHERE id=$2;`;
+  let safeValues = [parsedIngredients, id];
+  client.query(sql, safeValues)
+    .then(() => {
+      response.redirect('/foodforlater');
+    });
+}
 
 let query;
 
@@ -90,6 +104,10 @@ function Recipe(obj){
   this.dietLabels = obj.recipe.dietLabels;
   this.healthLabels = obj.recipe.healthLabels;
 }
+
+// $('showButton').click(function(){
+//   $(this).siblings('.updateForm').toggleClass('.hidden');
+// });
 
 // Turn on the DB and the Server
 client.connect()

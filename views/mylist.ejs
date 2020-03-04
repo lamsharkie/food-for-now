@@ -32,8 +32,7 @@
     </nav>
     <section>
       <% results.forEach(recipe => { %>
-        <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
-          <fieldset>
+        <article>
             <img src="<%= recipe.image_url %>">
             <br>
             <h4>Ingredients</h4>
@@ -43,9 +42,15 @@
             <label><%= ingredient %></label>
             <br>
             <% }); %>
-          </fieldset>
-          <button type='submit'>Delete Recipes</button>
+            <div class='showButton'>Update</div>
+          <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
+            <button type='submit'>Delete</button>
+          </form>
+            <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm' method="post">
+              <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
+              <button type='submit'>Submit</button>
         </form>
+      </article>
       <% }); %>
     </section>
     <!-- Footer -->
