@@ -32,23 +32,27 @@
     </nav>
     <section>
       <% results.forEach(recipe => { %>
-        <article>
-          <img src="<%= recipe.image_url %>"/>
-          <h2><%= recipe.label %></h2>
-          <h4>Ingredients</h4>
-          <ul>
+        <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
+          <fieldset>
+            <img src="<%= recipe.image_url %>">
+            <br>
+            <h4>Ingredients</h4>
+            <label><%= recipe.label %></label>
             <% recipe.ingredientlines.forEach(ingredient => { %>
-              <li><%= ingredient %></li>
+            <br>
+            <label><%= ingredient %></label>
+            <br>
             <% }); %>
-          </ul>
-        </article>
+          </fieldset>
+          <button type='submit'>Delete Recipes</button>
+        </form>
       <% }); %>
     </section>
     <!-- Footer -->
     <footer>
       <ul>
         <li>Food For Now &copy; 2020</li>
-        <li>Built by: Cavendish Bananas</li>`
+        <li>Built by: Cavendish Bananas</li>
       </ul>
     </footer>
   </main>

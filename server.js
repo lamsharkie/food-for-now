@@ -29,6 +29,20 @@ app.get('/foodforlater', renderMyList);
 
 let query;
 
+/////////////Teddy 3/4/2020
+app.delete('/delete/:recipe_id', deleteRecipe);
+
+function deleteRecipe(request, response){
+  let id = request.params.recipe_id;
+  let sql = 'DELETE FROM recipes WHERE id=$1;';
+  let safeValues = [id];
+  client.query(sql, safeValues)
+    .then(() => {
+      response.redirect('/');
+    });
+}
+///////////////Teddy
+
 // Functions
 function renderHomePage(request, response){
   response.render('./index.ejs');
