@@ -36,19 +36,23 @@
     <section id="foodForLaterSection">
       <% results.forEach(recipe => { %>
         <article>
-            <img src="<%= recipe.image_url %>"> 
-            <div>       
-                <h2><%= recipe.label %></h2>
-                <h4>Ingredients</h4>
-                <ul>
-                <% recipe.ingredientlines.forEach(ingredient => { %>            
-                <li><%= ingredient %></li>            
-                <% }); %>
-                </ul>
-                <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
-                        <button type='submit'>Delete Recipes</button>
-                </form>
-            </div>    
+          <img src="<%= recipe.image_url %>">
+          <div>
+            <h2><%= recipe.label %></h2>
+            <h4>Ingredients</h4>
+            <label><%= recipe.label %></label>
+            <% recipe.ingredientlines.forEach(ingredient => { %>
+            <label><%= ingredient %></label>
+            <% }); %>
+            <div class='showButton'>Update</div>
+            <form action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
+              <button type='submit'>Delete</button>
+            </form>
+            <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm hidden' method="post">
+                <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
+                <button type='submit'>Submit</button>
+            </form>
+          </div>
         </article>
       <% }); %>
     </section>
@@ -60,6 +64,11 @@
       </ul>
     </footer>
   </main>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>  
+  <script src='app.js'></script>
 </body>
 
 </html>
