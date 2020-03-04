@@ -14,18 +14,18 @@
 </head>
 
 <body>
-  <main>
+  <main id="indexMain">
     <!-- Top Nav -->
-
+    
     <nav class="bar">
-        <div>Food For Now</div>
+        <a href="/"><div>Food For Now</div></a>
         <ul id="recipe">
             <!-- Search will be hidden on the Home page: index.ejs -->
             <a href="/" ><li>Search</li></a>
             <a href="/foodforlater" ><li>My List</li></a>
         </ul>
     </nav>
-
+    <div class="overlay">
     <!-- Search Form -->
     
         <form id="searchForm" action="/search" method="POST">
@@ -37,18 +37,19 @@
                 <li>Log In</li>
             </ul>
         </form>
-
+    </div>
     <!-- Footer -->
+    
+    
+    
     <footer>
-
+  
       <ul>
         <li>Food For Now &copy; 2020</li>
-        <li>Built by: Cavendish Bananas</li>`
+        <li>Built by: Cavendish Bananas</li>
       </ul>
-
+  
     </footer>
-
-
   </main>
 </body>
 
