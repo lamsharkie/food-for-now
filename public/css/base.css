@@ -1,0 +1,281 @@
+@import url('theme.css');
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#indexMain {
+    background-image: url('/img/foodbg.png');
+    background-size: 100vh;
+}
+
+#foodForNowMain, #resultsMain {
+    background-color: rgb(236, 233, 233);
+}
+
+a, a:link, a:visited {
+    text-decoration: none;  
+    color: #fff;
+  }
+
+h1{
+    font-size: 1.8rem;
+    margin: 14px;
+    text-align: center;
+}
+
+main {
+    height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 255, 117, 0.8);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    /* margin-bottom: 42px; */
+    background-color: rgba(13, 255, 117, 0.8);
+} 
+
+nav ul {
+    display: flex;
+    align-self: end;
+    margin:7px 21px;
+}
+
+nav ul li{
+    margin-right: 14px;
+}
+
+/* form */
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-self: center;
+    margin: 
+}
+
+#searchForm input{
+    align-self: center;
+    width: 100%;
+    height: 45px;
+    margin: 7px;
+    border-radius: 21px;    
+}
+
+#searchForm button {
+    align-self: center;
+    height: 35px;
+    width: 40%;
+    border-radius: 21px;
+}
+
+#searchForm ul{
+    display: flex;
+    align-self: center;
+    margin: 7px;
+}
+
+#searchForm ul li{
+    margin: 7px;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 14px;
+    background-color: rgba(13, 255, 117, 0.8)
+    /* margin-top: 42px; */
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer ul li {
+    align-self: center;
+}
+
+
+/* Recipes */
+
+/* card container */
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;    
+    width: 90%;
+    padding: 14px 0px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 14px 50px;
+}
+
+/* card */
+article {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 90%;
+    background-color: #83FF69;
+    border: 1px solid rgb(84, 232, 105, 0.7);
+    border-radius: 14px 50px;
+    margin: 21px 0px;
+    box-shadow: 3px 4px rgb(95, 95, 95, 0.6);
+}
+
+article img {
+    border-radius: 14px 50px;
+    box-shadow: 1px 2px rgb(95, 95, 95, 0.6);
+}
+
+article div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    width: 90%;
+
+}
+
+article h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    /* align-self: center; */
+}
+
+article div h4 {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+article > img, h2, h4, ul, button {
+    margin-bottom: 7px;
+}
+
+article div form {
+    display: flex;
+    width: 100%;
+}
+article div form button {
+    align-self: flex-end;
+}
+
+/* Button Styling */
+
+.button {
+    border-radius: 21px;
+}
+
+.button-no-style{
+    border: none;
+    background: none;
+}
+
+/* Delete Button */
+.far, .fa-times-circle{
+    color: red;
+    font-size: 24px;
+    background: none;
+    border: none;
+}
+/* Edit Button */
+.fas, .fa-pencil-alt{
+    color: rgba(170, 150, 37, 0.884);
+    font-size: 24px;
+    
+}
+
+.primary-button {
+    background: rgb(79,214,255);
+}
+
+.delete-form {
+    display: flex;
+    width: 20%;
+    align-self: flex-end;
+    margin: 0;
+}
+
+.ingredientsHeadding {
+    display: inline-block;
+}
+
+.showButton{
+    display: inline-block;
+    width: 10%;
+    align-self: flex-end;
+}
+
+.updateForm{
+    display: flex;
+    justify-content: center;
+}
+
+.updateForm input{
+    
+    height: 30px;
+    width: 75%;
+    border-radius: 50px 0 0 50px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.updateForm button{
+    height: 30px;
+    border-radius: 0 50px 50px 0;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    
+}
+
+.updateForm input{
+    
+}
+
+
+.editSubmit{
+    border: none;
+    background: #4FD6FF;
+}
+
+.ingredients-heading h4{
+    display: inline;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+#aboutUsSection article img{
+    width: 100%;
+    height: 300px;
+}

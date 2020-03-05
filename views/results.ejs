@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipie Results.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Recipie Results.</title>
+  <link type="text/css" rel="stylesheet" href="/css/reset.css" />
+  <link type="text/css" rel="stylesheet" href="/css/base.css" />
+  <link type="text/css" rel="stylesheet" href="/css/layout.css" />
+  <link type="text/css" rel="stylesheet" href="/css/module.css" />
+
 </head>
+
 <body>
-<main>
+  <main id="resultsMain">
     <!-- Top Nav -->
     <nav>
-        <ul>
-            <a href="/"><li>Food For Now</li></a>
-            <!-- Search will be hidden on the Home page: index.ejs -->
-            <a href="/" ><li>Search</li> </a>
-            <a href="/foodforlater" ><li>My List</li>
-        </ul>
+      <ul>
+        <a href="/">
+          <li>Food For Now</li>
+        </a>
+        <a href="/">
+          <li>Search</li>
+        </a>
+        <a href="/foodforlater">
+          <li>My List</li>
+        </a>
+        <a href="/aboutUs">
+          <li>About Us</li>
+        </a>
+      </ul>
     </nav>
 
     <section>
-        <!-- Recipe Cards -->
+      <!-- Recipe Cards -->
+      <% results.forEach(recipe => { %>
         <article>
-
-            <img src="https://placeholder.it/400x200" />
-            <h2>Food Name</h2>
+          <img src="<%= recipe.image_url %>"/>
+          <div>
+            <h2><%= recipe.label %></h2>
             <h4>Ingredients</h4>
             <ul>
-                <li>1 cup of placeholder text</li>
-                <li>3 cups of variables</li>
-                <li>These li tags will</li>
-                <li>Be dynamically rendered</li>
+              <% recipe.ingredientLines.forEach(ingredient => { %>
+              <li><%= ingredient %></li>
+              <% }); %>
             </ul>
-
+            <form action="/save" method="POST">
+              <input type="hidden" name="image_url" value="<%= recipe.image_url %>">
+              <input type="hidden" name="label" value="<%= recipe.label %>">
+              <input type="hidden" name="ingredientLines" value="<%= JSON.stringify(recipe.ingredientLines) %>">
+              <input type="hidden" name="recipe_url" value="<%= recipe.recipe_url %>">
+              <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
+              <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
+              <button type="submit">Save</button>
+            </form>
+          </div>
         </article>
-
+      <% }); %>
     </section>
-
-
-
-
-
 
     <!-- Footer -->
     <footer>
-
-        <ul>
-            <li>Food For Now &copy; 2020</li>
-            <li>Built by: Cavendish Bananas</li>`
-        </ul>
-
+      <ul>
+        <li>Food For Now &copy; 2020</li>
+        <li>Built by: Cavendish Bananas</li>`
+      </ul>
     </footer>
-</main>    
+  </main>
+  <%- include('./layout/cdn.ejs') %>
+
 </body>
 </html>

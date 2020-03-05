@@ -1,4 +1,15 @@
 
+/* CSS Variables */
+
+:root {
+    --primaryColor: #83FF69;
+}
+
+/* ************************  */
+
+
+
+
 /*  Main Color Theme */
 
 /* Color Theme Swatches in Hex */
@@ -34,3 +45,6 @@
 .ffn-green-scale-5-rgba { color: rgba(222, 255, 13, 1); }
 
 /*  *********************   */
+
+
+
