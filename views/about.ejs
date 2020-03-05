@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Recipie Results.</title>
+  <title>About Us</title>
   <link type="text/css" rel="stylesheet" href="/css/reset.css" />
   <link type="text/css" rel="stylesheet" href="/css/base.css" />
   <link type="text/css" rel="stylesheet" href="/css/layout.css" />
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <main id="resultsMain">
+  <main id="nav">
     <!-- Top Nav -->
     <nav>
       <ul>
@@ -32,32 +32,36 @@
         </a>
       </ul>
     </nav>
-
+ 
     <section>
-      <!-- Recipe Cards -->
-      <% results.forEach(recipe => { %>
+      <!-- Dev Cards -->
         <article>
-          <img src="<%= recipe.image_url %>"/>
+          <img src="https://images.unsplash.com/photo-1539808505172-71ad23d99b4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3034&q=80"></img>
           <div>
-            <h2><%= recipe.label %></h2>
-            <h4>Ingredients</h4>
+            <h2>(They/Them) Steven Miyauchi</h2>
+            <h4>Hobbies:</h4>
             <ul>
-              <% recipe.ingredientLines.forEach(ingredient => { %>
-              <li><%= ingredient %></li>
-              <% }); %>
+              <li>Tennis</li> 
+              <li>League Of Legends</li>
+              <li>Music</li>
             </ul>
-            <form action="/save" method="POST">
-              <input type="hidden" name="image_url" value="<%= recipe.image_url %>">
-              <input type="hidden" name="label" value="<%= recipe.label %>">
-              <input type="hidden" name="ingredientLines" value="<%= JSON.stringify(recipe.ingredientLines) %>">
-              <input type="hidden" name="recipe_url" value="<%= recipe.recipe_url %>">
-              <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
-              <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
-              <button type="submit">Save</button>
-            </form>
+            <h4>Skills:</h4>
+            <ul>
+                <li>HTML</li>
+                <li>JavaScript</li>
+                <li>CSS</li>
+                <li>PostGres</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Social Links:</h4>
+            <ul>
+              <a href="https://www.facebook.com/steven.miyauchi">
+                <li>Facebook</li>
+              </a>
+            </ul>
           </div>
         </article>
-      <% }); %>
     </section>
 
     <!-- Footer -->
