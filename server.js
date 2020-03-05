@@ -27,6 +27,7 @@ app.get('/recipeResults', renderRecipes);
 app.post('/save', saveRecipe);
 app.get('/foodforlater', renderMyList);
 app.put('/edit/:recipe_id', updateRecipe);
+app.get('/aboutUs', renderAboutUs);
 
 
 function updateRecipe(request, response){
@@ -42,6 +43,10 @@ function updateRecipe(request, response){
 }
 
 let query;
+
+function renderAboutUs(request, response){
+  response.render('./about.ejs');
+}
 
 /////////////Teddy 3/4/2020
 app.delete('/delete/:recipe_id', deleteRecipe);
