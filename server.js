@@ -27,6 +27,7 @@ app.get('/recipeResults', renderRecipes);
 app.post('/save', saveRecipe);
 app.get('/foodforlater', renderMyList);
 app.put('/edit/:recipe_id', updateRecipe);
+app.delete('/delete/:recipe_id', deleteRecipe);
 app.get('/aboutUs', renderAboutUs);
 
 
@@ -49,7 +50,6 @@ function renderAboutUs(request, response){
 }
 
 /////////////Teddy 3/4/2020
-app.delete('/delete/:recipe_id', deleteRecipe);
 
 function deleteRecipe(request, response){
   let id = request.params.recipe_id;
