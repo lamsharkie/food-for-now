@@ -45,10 +45,6 @@ function updateRecipe(request, response){
 
 let query;
 
-function renderAboutUs(request, response){
-  response.render('./about.ejs');
-}
-
 /////////////Teddy 3/4/2020
 
 function deleteRecipe(request, response){
@@ -77,6 +73,10 @@ function renderMyList(request, response){
     let recipes = results.rows;
     response.render('./mylist.ejs', {results: recipes});
   });
+}
+
+function renderAboutUs(request, response){
+  response.render('./about.ejs');
 }
 
 function handleSearch(request, response) {
