@@ -75,6 +75,10 @@ function renderMyList(request, response){
   });
 }
 
+function renderAboutUs(request, response){
+  response.render('./about.ejs');
+}
+
 function handleSearch(request, response) {
   query = request.body.search;
   let url = `https://api.edamam.com/search?q=${query}&app_id=${process.env.EDAMAM_ID}&app_key=${process.env.EDAMAM_KEY}`;

@@ -37,27 +37,31 @@
       <% results.forEach(recipe => { %>
         <article>
           <img src="<%= recipe.image_url %>">
-          <div>
+          <div> 
+              
+              <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm hidden' method="post">
+                <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
+                <button class="editSubmit" type='submit'>Submit</button>
+              </form>
+              <p class="fas fa-pencil-alt showButton"></p>
+
+                <form class="delete-form" action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
+                  <button type='submit' class="far fa-times-circle delete-button"></button>
+                </form>
+              
             <h2><%= recipe.label %></h2>            
             <h4>Ingredients</h4>
-            <p class="fas fa-pencil-alt showButton"></p>
             
             <ul>
               <% recipe.ingredientlines.forEach(ingredient => { %>
               <li><%= ingredient %></li>
               <% }); %>
             </ul>
-            <!-- <div class="fas fa-pencil-alt showButton"></div> -->
+            <!-- <div class="fas fa-pencil-alt showButton"></div> -->            
             
-            <form class="delete-form" action="<%=`/delete/${recipe.id}?_method=DELETE` %>" method="post">
-              <button type='submit' class="far fa-times-circle delete-button"></button>
-            </form>
             
            
-            <form action="<%=`/edit/${recipe.id}?_method=PUT` %>"class='updateForm hidden' method="post">
-                <input name='ingredientlines' value="<%=recipe.ingredientlines.join(' | ') %>">
-                <button class="editSubmit" type='submit'>Submit</button>
-            </form>
+            
           </div>
         </article>
       <% }); %>
