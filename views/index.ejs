@@ -18,12 +18,9 @@
     <!-- Top Nav -->
     
     <nav>
-      <ul>
+      <ul class="nav-links">
         <a href="/">
           <li>Food For Now</li>
-        </a>
-        <a href="/">
-          <li>Search</li>
         </a>
         <a href="/foodforlater">
           <li>My List</li>
@@ -33,18 +30,17 @@
         </a>
       </ul>
     </nav>
+   
     
+
     <div class="overlay">
     <!-- Search Form -->
     
         <form id="searchForm" action="/search" method="POST">
+            <h1 class="mainHeading">Food For Now</h1>
             <input type="text" name="search" placeholder="Type in some ingredients..." />
             <button id="searchButton" class="primary-button " type="submit">Find Recipes</button>
-            <!-- Register / Login -->
-            <ul>
-                <li>Register</li>
-                <li>Log In</li>
-            </ul>
+            
         </form>
     </div>
     <!-- Footer -->
